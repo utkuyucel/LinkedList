@@ -16,9 +16,14 @@ int main()
     liste.ListeyeElemanEkle(5);
     liste.ListeyiYazdir();
 
-    int a = liste.ListeninSirasindakiEleman(0);
-    int b = liste.ListeninSirasindakiEleman(2);
+//    int a = liste.ListeninSirasindakiEleman(0);
+//    int b = liste.ListeninSirasindakiEleman(2);
+    cout << "---------------------------\n";
 
-    cout << "Eleman: " << a << "\n" << "Son Eleman: " << b << "\n";
+//    liste.ListeninSirasinaBirelemanEkle(3, 10);
+
+    int a = liste.ListedeAramaYap(1);
+
+    cout << "Bulunma durumu: " << a << "\n";
     return 0;
 }
