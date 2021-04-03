@@ -19,6 +19,7 @@ public:
     // Çalışma soruları | Ödevler // Çizip tasarlayarak yapmaya çalış. // Paintte vb.
     int ListeninSirasindakiEleman(int sira_no);
     void ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri);
+
     bool ListedeAramaYap(int sayi_degeri);
     void ListeninSirasindakiElemaniSil(int sira_no);
 
@@ -141,22 +142,6 @@ int LinkedList::ListeninSirasindakiEleman(int sira_no) {
     return return_value;
 }
 
-//void LinkedList::ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri) { // Çözüm, header'da olabilir.
-//    Node *yeni = new Node();
-//    Node *temp = header;
-
-//    yeni->sayi1 = sayi_degeri;
-
-//    for (int i = 1; temp->sonraki != 0; i++) {
-
-//        if (i == sira_no) {
-//            temp->sonraki->sayi1 = yeni->sayi1;
-//        }
-
-//        temp = temp->sonraki;
-//    }
-//}
-
 void LinkedList::ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri) {
     Node *yeni = new Node();
     yeni->sayi1 = sayi_degeri;
@@ -179,4 +164,22 @@ void LinkedList::ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri) {
     }
 }
 
+bool LinkedList::ListedeAramaYap(int sayi_degeri) {
+    Node *temp = header;
+
+    if (header == 0) {
+        cout << "Listede herhangi bir eleman bulunmamaktadır.";
+        return false;
+    }
+
+    else {
+        for (int i = 1; temp->sonraki != 0; i++) {
+            if (temp->sayi1 == sayi_degeri) {
+                return true;
+            }
+            temp = temp->sonraki;
+        }
+    }
+    return false;
+}
 #endif // LINKEDLIST_H
