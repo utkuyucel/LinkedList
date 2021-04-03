@@ -141,4 +141,42 @@ int LinkedList::ListeninSirasindakiEleman(int sira_no) {
     return return_value;
 }
 
+//void LinkedList::ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri) { // Çözüm, header'da olabilir.
+//    Node *yeni = new Node();
+//    Node *temp = header;
+
+//    yeni->sayi1 = sayi_degeri;
+
+//    for (int i = 1; temp->sonraki != 0; i++) {
+
+//        if (i == sira_no) {
+//            temp->sonraki->sayi1 = yeni->sayi1;
+//        }
+
+//        temp = temp->sonraki;
+//    }
+//}
+
+void LinkedList::ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri) {
+    Node *yeni = new Node();
+    yeni->sayi1 = sayi_degeri;
+
+    if (sira_no == 0) {
+        yeni->sonraki = header;
+        header = yeni;
+
+    } else {
+        Node *temp = header;
+
+        for (int i = 1; temp->sonraki != 0; i++) {
+            if (i == sira_no) {
+                yeni->sonraki = temp->sonraki;
+                temp->sonraki = yeni;
+                break;
+            }
+            temp = temp->sonraki;
+        }
+    }
+}
+
 #endif // LINKEDLIST_H
