@@ -19,10 +19,9 @@ public:
     // Çalışma soruları | Ödevler // Çizip tasarlayarak yapmaya çalış. // Paintte vb.
     int ListeninSirasindakiEleman(int sira_no);
     void ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri);
-
     bool ListedeAramaYap(int sayi_degeri);
-    void ListeninSirasindakiElemaniSil(int sira_no);
 
+    void ListeninSirasindakiElemaniSil(int sira_no);
 
     // Derste yaptık.
     void sonElemaniSil(void);
@@ -142,6 +141,26 @@ int LinkedList::ListeninSirasindakiEleman(int sira_no) {
     return return_value;
 }
 
+
+bool LinkedList::ListedeAramaYap(int sayi_degeri) {
+    Node *temp = header;
+
+    if (header == 0) {
+        cout << "Listede herhangi bir eleman bulunmamaktadir.";
+        return false;
+    }
+
+    else {
+        for (int i = 1; temp->sonraki != 0; i++) {
+            if (temp->sayi1 == sayi_degeri) {
+                return true;
+            }
+            temp = temp->sonraki;
+        }
+    }
+    return false;
+}
+
 void LinkedList::ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri) {
     Node *yeni = new Node();
     yeni->sayi1 = sayi_degeri;
@@ -164,22 +183,27 @@ void LinkedList::ListeninSirasinaBirelemanEkle(int sira_no, int sayi_degeri) {
     }
 }
 
-bool LinkedList::ListedeAramaYap(int sayi_degeri) {
+void LinkedList::ListeninSirasindakiElemaniSil(int sira_no) {
     Node *temp = header;
 
     if (header == 0) {
-        cout << "Listede herhangi bir eleman bulunmamaktadır.";
-        return false;
+        cout << "Listede herhangi bir eleman bulunmamaktadir.";
+    }
+
+    else if (sira_no == 0) {
+        ListeninBasindakiElemaniSil();
     }
 
     else {
+
         for (int i = 1; temp->sonraki != 0; i++) {
-            if (temp->sayi1 == sayi_degeri) {
-                return true;
+            if (i == sira_no) {
+                temp-> sonraki= temp->sonraki->sonraki;
             }
             temp = temp->sonraki;
         }
     }
-    return false;
 }
+
+
 #endif // LINKEDLIST_H
