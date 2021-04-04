@@ -22,8 +22,9 @@ int main()
 
 //    liste.ListeninSirasinaBirelemanEkle(3, 10);
 
-    int a = liste.ListedeAramaYap(1);
+//    int a = liste.ListedeAramaYap(1);
 
-    cout << "Bulunma durumu: " << a << "\n";
+    liste.ListeninSirasindakiElemaniSil(0);
+    liste.ListeyiYazdir();
     return 0;
 }
