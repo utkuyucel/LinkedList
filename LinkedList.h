@@ -112,7 +112,6 @@ void LinkedList::ListeninBasindakiElemaniSil(void) {
 
     header = temp;
 }
-
 int LinkedList::ListeninSirasindakiEleman(int sira_no) {
     Node *temp = header;
     int counter = 0;
@@ -131,16 +130,16 @@ int LinkedList::ListeninSirasindakiEleman(int sira_no) {
 
         counter++;
         temp = temp->sonraki;
-        return_value = temp->sayi1;
     }
 
-    if (temp->sonraki == 0 && counter < sira_no) {
+    return_value = temp->sayi1;
+
+    if ( (temp->sonraki == 0 && counter < sira_no) || sira_no < 0) {
         return_value = -1;
     }
 
     return return_value;
 }
-
 
 bool LinkedList::ListedeAramaYap(int sayi_degeri) {
     Node *temp = header;
